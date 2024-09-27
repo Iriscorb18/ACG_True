@@ -1,0 +1,51 @@
+﻿  camera.cpp
+  ortographic.cpp
+  perspective.cpp
+  bitmap.cpp
+  eqsolver.cpp
+  film.cpp
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\tinyexr.h(13213,28): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\film.cpp(87,25): warning C4267: '=': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\film.cpp(88,27): warning C4267: '=': conversión de 'size_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\film.cpp(96,36): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+  hemisphericalsampler.cpp
+  intersection.cpp
+  matrix4x4.cpp
+  ray.cpp
+  scene.cpp
+  utils.cpp
+  vector3d.cpp
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(7,33): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(7,39): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(7,45): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(11,56): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(11,63): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(11,70): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(83,10): warning C4244: '*=': conversión de 'const double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(84,10): warning C4244: '*=': conversión de 'const double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(85,10): warning C4244: '*=': conversión de 'const double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(93,10): warning C4244: '/=': conversión de 'const double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(94,10): warning C4244: '/=': conversión de 'const double' a 'float'; posible pérdida de datos
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\core\vector3d.cpp(95,10): warning C4244: '/=': conversión de 'const double' a 'float'; posible pérdida de datos
+  arealightsource.cpp
+  main.cpp
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\main.cpp(257,21): warning C4244: 'inicializando': conversión de '_Rep' a 'float'; posible pérdida de datos
+          with
+          [
+              _Rep=double
+          ]
+  emissive.cpp
+  material.cpp
+  phong.cpp
+  depthshader.cpp
+  intersectionshader.cpp
+  Generando código...
+C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\src\lightsources\arealightsource.h(30): warning C4715: 'AreaLightSource::getArea': no todas las rutas de acceso de control devuelven un valor
+  Compilando...
+  shader.cpp
+  infiniteplan.cpp
+  shape.cpp
+  sphere.cpp
+  square.cpp
+  Generando código...
+  RTIS_V2.vcxproj -> C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe
