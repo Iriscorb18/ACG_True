@@ -16,6 +16,7 @@
 
 #include "shaders/intersectionshader.h"
 #include "shaders/depthshader.h"
+#include "shaders/normalshader.h"
 
 
 #include "materials/phong.h"
@@ -144,9 +145,9 @@ void raytrace(Camera* &cam, Shader* &shader, Film* &film,
               std::vector<Shape*>* &objectsList, std::vector<LightSource*>* &lightSourceList)
 {
     
-    double my_PI = 0.0;
-    double n_estimations = 0.0;
-    unsigned int sizeBar = 40;
+    //double my_PI = 0.0;
+    //double n_estimations = 0.0;
+    //unsigned int sizeBar = 40;
 
     size_t resX = film->getWidth();
     size_t resY = film->getHeight();
@@ -199,8 +200,9 @@ void PaintImage(Film* film)
         for (size_t col = 0; col < resX; col++)
         { 
             //CHANGE...()
-            Vector3D random_color = Vector3D((double)rand() / RAND_MAX, (double)rand() / RAND_MAX, (double)rand() / RAND_MAX);            
-            film->setPixelValue(col,lin, random_color);
+            Vector3D new_color = Vector3D((double)col / resX, (double)lin / resY, 0);
+            //Vector3D random_color = Vector3D((double)rand() / RAND_MAX, (double)rand() / RAND_MAX, (double)rand() / RAND_MAX);            
+            film->setPixelValue(col,lin, new_color);
            
         }
     }
@@ -223,7 +225,9 @@ int main()
     
     //First Assignment
     Shader *shader = new IntersectionShader (intersectionColor, bgColor);
-    //Shader *depthshader = new DepthShader (intersectionColor,7.5f, bgColor);
+    Shader *depthshader = new DepthShader (intersectionColor,7.5f, bgColor);
+    Shader *normalshader = new Normalshader(intersectionColor, bgColor);
+    Shader* whittedshader = new Normalshader(intersectionColor, bgColor);
     //(... normal, whitted) ...
 
   
@@ -234,16 +238,18 @@ int main()
     Camera* cam;
     Scene myScene;
     //Create Scene Geometry and Illumiantion
-    buildSceneSphere(cam, film, myScene); //Task 2,3,4;
-    //buildSceneCornellBox(cam, film, myScene); //Task 5
+    //buildSceneSphere(cam, film, myScene); //Task 2,3,4;
+    buildSceneCornellBox(cam, film, myScene); //Task 5
+    
 
     //---------------------------------------------------------------------------
 
     //Paint Image ONLY TASK 1
-    PaintImage(film);
+    //PaintImage(film);
 
     // Launch some rays! TASK 2,3,...   
     auto start = high_resolution_clock::now();
+    raytrace(cam, whittedshader, film, myScene.objectsList, myScene.LightSourceList);
     //raytrace(cam, depthshader, film, myScene.objectsList, myScene.LightSourceList);
     auto stop = high_resolution_clock::now();
 
