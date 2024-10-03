@@ -1,1 +1,2 @@
 C:\Users\u137471\Desktop\Courses UPF\Advanced Computer Graphics\2024-25\CLEAN FRAMEWOIRK\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe
+C:\Users\ebren\source\repos\Iriscorb18\ACG_True\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe

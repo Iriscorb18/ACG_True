@@ -4,9 +4,13 @@
     "\\RTACG_Students",
     "\\RTACG_Students\\src",
     "\\RTACG_Students\\src\\core",
+    "\\RTACG_Students\\src\\lightsources",
     "\\RTACG_Students\\src\\materials",
-    "\\RTACG_Students\\src\\shaders"
+    "\\RTACG_Students\\src\\shaders",
+    "\\RTACG_Students\\VisualStudio2015",
+    "\\RTACG_Students\\VisualStudio2015\\RTACG",
+    "\\RTACG_Students\\VisualStudio2015\\RTACG\\Debug"
   ],
-  "SelectedNode": "\\RTACG_Students\\src\\materials\\phong.cpp",
+  "SelectedNode": "\\RTACG_Students\\src\\main.cpp",
   "PreviewInSolutionExplorer": false
 }

@@ -17,6 +17,7 @@
 #include "shaders/intersectionshader.h"
 #include "shaders/depthshader.h"
 #include "shaders/normalshader.h"
+#include "shaders/whittedintegrator.h"
 
 
 #include "materials/phong.h"
@@ -227,7 +228,7 @@ int main()
     Shader *shader = new IntersectionShader (intersectionColor, bgColor);
     Shader *depthshader = new DepthShader (intersectionColor,7.5f, bgColor);
     Shader *normalshader = new Normalshader(intersectionColor, bgColor);
-    Shader* whittedshader = new Normalshader(intersectionColor, bgColor);
+    Shader *whittedshader = new WhittedIntshader(intersectionColor, bgColor);
     //(... normal, whitted) ...
 
   
