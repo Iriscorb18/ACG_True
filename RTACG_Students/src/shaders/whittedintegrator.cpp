@@ -27,7 +27,7 @@ Vector3D WhittedIntshader::computeColor(const Ray& r, const std::vector<Shape*>&
         int Vs = 1;
         for (int i = 0; i < lsList.size(); i++) {
             Vector3D wi = (lsList.at(i)->sampleLightPosition() - its.itsPoint).normalized();
-            Vector3D n = its.normal;
+            Vector3D n = its.normal.normalized();
             Vector3D wo = -r.d;
             Vector3D reflectance = its.shape->getMaterial().getReflectance(n, wo, wi);
             Ray robj;
@@ -38,7 +38,8 @@ Vector3D WhittedIntshader::computeColor(const Ray& r, const std::vector<Shape*>&
             if (Utils::hasIntersection(robj, objList)) {
                 Vs = 0;
             }
-            WhittedColor += reflectance * lsList.at(i)->getIntensity() * n * wi* Vs;
+            WhittedColor += reflectance * lsList.at(i)->getIntensity()*Vs*dot(n,wi);
+                
         }
         return WhittedColor;
     }

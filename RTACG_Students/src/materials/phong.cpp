@@ -11,20 +11,20 @@ rho_d(Kd_), Ks(Ks_), alpha(alpha_){}
 
 
 Vector3D Phong::getReflectance(const Vector3D& n, const Vector3D& wo, const Vector3D& wi) const {
-    Vector3D dot_1 = dot(n, wi);
-    Vector3D dot_2 = dot_1 * 2;
-    Vector3D dot_normal = dot_2 * n;
-    Vector3D wr = dot_normal - wi;
-    Vector3D diffuse = rho_d / 3.14;
-    double wrdotwo = dot(wo, wr);
-    Vector3D specular = diffuse + Ks * pow(wrdotwo, alpha);
+    
+    // Compute the ideal reflection direction
+    Vector3D wr = 2 * dot(n, wi);
+    wr = wr * n;
+    wr = wr - wi;
+    
+    // Calculate the diffuse and specular components
+    Vector3D diffuse = (rho_d / 3.14);
+   
+    Vector3D specular = (Ks * pow(dot(wo, wr), alpha));
+    // Return the reflectance
+    
+    return Vector3D(diffuse + specular);
 
-
-    //FILL(...)
-
-  
-
-    return diffuse+specular;
 
 };
 
