@@ -18,6 +18,7 @@ double Transmissive::getIndexOfRefraction() const
     std::cout << "Warning! Calling \"Material::getIndexOfRefraction()\" for a non-transmissive material"
               << std::endl;
 
+
     return r;
 }
 

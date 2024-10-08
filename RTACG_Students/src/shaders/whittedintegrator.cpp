@@ -47,7 +47,8 @@ Vector3D WhittedIntshader::computeColor(const Ray& r, const std::vector<Shape*>&
         else if (its.shape->getMaterial().hasTransmission()){ // Transmissive
         
             Vector3D wt;
-            double ratio = its.shape->getMaterial().getIndexOfRefraction();  
+            //double ratio = its.shape->getMaterial().getIndexOfRefraction();  
+            double ratio = 0.7;
 
             if (dot(r.d, its.normal) > 0)
 

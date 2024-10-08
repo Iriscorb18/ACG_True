@@ -17,7 +17,7 @@ Vector3D DepthShader::computeColor(const Ray &r, const std::vector<Shape*> &objL
     if (Utils::getClosestIntersection(r, objList, its)) {
         double distance2camera = (r.o - its.itsPoint).length(); //camera distance - intersection point
        
-        return (1 - distance2camera / 7.0);
+        return color * (1 - distance2camera / 7.0);
     }
     else {
         return bgColor;
