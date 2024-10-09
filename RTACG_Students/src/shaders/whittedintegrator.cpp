@@ -15,68 +15,62 @@ WhittedIntshader::WhittedIntshader(Vector3D wColor_, Vector3D bgColor_) :
     Shader(bgColor_), WhittedColor(wColor_)
 { }
 
-
-//no completat, revisar
 Vector3D WhittedIntshader::computeColor(const Ray& r, const std::vector<Shape*>& objList, const std::vector<LightSource*>& lsList) const
 {
-    //(FILL..)
+   
     Intersection its;
     
 
-    if (Utils::getClosestIntersection(r, objList, its)) { //normalizar direccions
+    if (Utils::getClosestIntersection(r, objList, its)) { //Loop through all objects to see their closest intersection
         Vector3D WhittedColor = Vector3D(0.0, 0.0, 0.0);
 
 
-        if (its.shape->getMaterial().hasSpecular()) {
+        if (its.shape->getMaterial().hasSpecular()) { //Check if material is specular
 
-            for (int i = 0; i < lsList.size(); i++) {
 
-                Vector3D wi = -r.d.normalized(); 
-                Vector3D N = its.normal.normalized(); 
+            Vector3D wi = -r.d; 
+            Vector3D N = its.normal.normalized(); 
 
-                Vector3D wr = 2 * dot(N, wi); 
-                wr = wr * N; 
-                wr = wr - wi; 
-
-                //Vector3D wr = Utils::computeReflectionDirection(r.d, its.normal); // we get the wr vector  
-                Ray reflectray = Ray(its.itsPoint, wr, r.depth + 1);           
-                WhittedColor = computeColor(reflectray, objList, lsList);
-            }
+            Vector3D wr = Utils::computeReflectionDirection(wi, N); // Calling function to compute reflection vector
+            Ray reflectray = Ray(its.itsPoint, wr, r.depth + 1);           
+            WhittedColor += computeColor(reflectray, objList, lsList); //Adding it to the WhittedColor
+    
         }
 
         else if (its.shape->getMaterial().hasTransmission()){ // Transmissive
         
             Vector3D wt;
-            //double ratio = its.shape->getMaterial().getIndexOfRefraction();  
+            Vector3D n = its.normal.normalized();
+            Vector3D wo = r.d;
             double ratio = 0.7;
 
-            if (dot(r.d, its.normal) > 0)
+            if (dot(wo, n) > 0) //Check if the ray is "inside" of the object
 
             {
                 ratio = 1 / ratio;  
-                its.normal = -its.normal;
+                n = -n;
             }
 
-            if (1 - ratio * ratio * (1 - (std::pow(dot(-r.d, its.normal), 2))) >= 0){  //radical is higher than zero
-                Vector3D a1 = -std::sqrt(1 - ratio * ratio * (1 - (std::pow(dot(-r.d, its.normal), 2)))) + ratio * dot(-r.d, its.normal); 
-                Vector3D a2 = (-r.d) * ratio; 
-                wt = its.normal * a1 - a2; 
+            if (1 - ratio * ratio * (1 - (pow(dot(-wo, n), 2))) >= 0){  //radical is higher than zero
+                Vector3D a1 = -sqrt(1 - ratio * ratio * (1 - (pow(dot(-wo, n), 2)))) + ratio * dot(-wo, n); 
+                Vector3D a2 = (-wo) * ratio; 
+                wt = n * a1 - a2; 
             }
 
             else
             {
-                wt = Utils::computeReflectionDirection(r.d, its.normal);
+                wt = Utils::computeReflectionDirection(wo, n); //Total internal reflection if radical is smaller than zero
             }
 
             Ray refractray = Ray(its.itsPoint, wt, r.depth);
-            WhittedColor = computeColor(refractray, objList, lsList);
+            WhittedColor += computeColor(refractray, objList, lsList);
 
         }
 
 
         else if (its.shape->getMaterial().hasDiffuseOrGlossy()) {
 
-            Vector3D at = Vector3D(0.15, 0.15, 0.15);
+            Vector3D at = Vector3D(0.15, 0.15, 0.15); //Ambient term
 
             Vector3D pd = its.shape->getMaterial().getDiffuseReflectance();
 
@@ -88,13 +82,13 @@ Vector3D WhittedIntshader::computeColor(const Ray& r, const std::vector<Shape*>&
                 Vector3D wi = (lsList.at(i)->sampleLightPosition() - its.itsPoint).normalized(); 
                 Vector3D n = its.normal.normalized();  
                 Vector3D wo = -r.d;  
-                Vector3D reflectance = its.shape->getMaterial().getReflectance(n, wo, wi);  
+                Vector3D reflectance = its.shape->getMaterial().getReflectance(n, wo, wi);   //Phong
                 Ray robj;  
                 robj.o = its.itsPoint;  
                 robj.d = wi;  
 
-                robj.maxT = (robj.o - lsList.at(i)->sampleLightPosition()).length();  
-                if (Utils::hasIntersection(robj, objList)) {  
+                robj.maxT = (robj.o - lsList.at(i)->sampleLightPosition()).length(); //We need to make a maximum to avoid this on to be infinite 
+                if (Utils::hasIntersection(robj, objList)) {  //Not having visibility
                     Vs = 0;  
                 } 
                 WhittedColor += reflectance * lsList.at(i)->getIntensity() * Vs * dot(n, wi);  
@@ -117,34 +111,3 @@ Vector3D WhittedIntshader::computeColor(const Ray& r, const std::vector<Shape*>&
 
 }
 
-/*
-* Intersection its;
-
-if (Utils::getClosestIntersection(r, objList, its)) {
-   
-    Vector3D total_whittedcolor = new Vector3D(0.0, 0.0, 0.0);
-    //Vector3D phongreflectance = Phong::getReflectance(???);
-
-
-    for (int s = 0; s < lsList.size(); s++) {
-
-        Ray ray = new Ray();
-
-        PointLightSource* Li = dynamic_cast<PointLightSource*>(lsList[s]);
-
-        Vector3D wi = (Li.sampleLightPosition() - its.itsPoint); //vector direction from x to the position of the point light source Ls
-
-        int Vs = Utils::hasIntersection(ray, objList, its) ? 0 : 1; // visible? 
-
-        Vector3D n = its.normal;
-
-        Vector3D wo = -r.d;
-
-        Vector3D reflectance = its.shape->getMaterial().getReflectance(n, wo, r.d);
-
-        total_whittedcolor += reflectance * lsList.at(i).getIntensity(its.itsPoint) * Vs;
-
-    }
-    return total_whittedcolor;
-}
-*/
