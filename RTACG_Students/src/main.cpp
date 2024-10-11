@@ -18,6 +18,7 @@
 #include "shaders/depthshader.h"
 #include "shaders/normalshader.h"
 #include "shaders/whittedintegrator.h"
+#include "shaders/hemisphericaldirectshader.h"
 
 
 #include "materials/phong.h"
@@ -48,17 +49,13 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     /* ********* */
     Material* redDiffuse = new Phong(Vector3D(0.7, 0.2, 0.3), Vector3D(0, 0, 0), 100);
     Material* greenDiffuse = new Phong(Vector3D(0.2, 0.7, 0.3), Vector3D(0, 0, 0), 100);
-    Material* greyDiffuse = new Phong(Vector3D(0.8, 0.8, 0.8), Vector3D(0, 0, 0), 100);      
-    Material* blueGlossy_20 = new Phong(Vector3D(0.2, 0.3, 0.8), Vector3D(0.8, 0.8, 0.8), 20);
-    Material* blueGlossy_80 = new Phong(Vector3D(0.2, 0.3, 0.8), Vector3D(0.8, 0.8, 0.8), 80);
+    Material* greyDiffuse = new Phong(Vector3D(0.8, 0.8, 0.8), Vector3D(0, 0, 0), 100);
+    Material* blueGlossy_20 = new Phong(Vector3D(0.2, 0.3, 0.8), Vector3D(0.2, 0.2, 0.2), 20);
+    Material* blueGlossy_80 = new Phong(Vector3D(0.2, 0.3, 0.8), Vector3D(0.2, 0.2, 0.2), 80);
     Material* cyandiffuse = new Phong(Vector3D(0.2, 0.8, 0.8), Vector3D(0, 0, 0), 100);
-
-    //Task 5.3
+    Material* emissive = new Emissive(Vector3D(25, 25, 25), Vector3D(0.5));
     Material* mirror = new Mirror();
-    //Task 5.4
-    Material* transmissive = new Transmissive(0.7); 
-
-
+    Material* transmissive = new Transmissive(0.7);
     /* ******* */
     /* Objects */
     /* ******* */
@@ -70,35 +67,32 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     Shape* topPlan = new InfinitePlan(Vector3D(0, offset, 0), Vector3D(0, -1, 0), greyDiffuse);
     Shape* bottomPlan = new InfinitePlan(Vector3D(0, -offset, 0), Vector3D(0, 1, 0), greyDiffuse);
     Shape* backPlan = new InfinitePlan(Vector3D(0, 0, 3 * offset), Vector3D(0, 0, -1), greyDiffuse);
+    Shape* square_emissive = new Square(Vector3D(-1.0, 3.0, 3.0), Vector3D(2.0, 0.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(0.0, -1.0, 0.0), emissive);
+
 
     myScene.AddObject(leftPlan);
     myScene.AddObject(rightPlan);
     myScene.AddObject(topPlan);
     myScene.AddObject(bottomPlan);
     myScene.AddObject(backPlan);
+    myScene.AddObject(square_emissive);
 
 
-    // Place the Spheres and square inside the Cornell Box
-    double radius = 1;         
+    // Place the Spheres inside the Cornell Box
+    double radius = 1;
     Matrix4x4 sphereTransform1;
     sphereTransform1 = Matrix4x4::translate(Vector3D(1.5, -offset + radius, 6));
     Shape* s1 = new Sphere(radius, sphereTransform1, blueGlossy_20);
 
     Matrix4x4 sphereTransform2;
-    sphereTransform2 = Matrix4x4::translate(Vector3D(-1.5, -offset + 3*radius, 4));
-    //We change the material to a transmissive one
-    Shape* s2 = new Sphere(radius, sphereTransform2, transmissive); //blueGlossy_80 
+    sphereTransform2 = Matrix4x4::translate(Vector3D(-1.5, -offset + 3 * radius, 4));
+    Shape* s2 = new Sphere(radius, sphereTransform2, transmissive);
 
-    //We add the type of material mirror
-    Shape* square = new Square(Vector3D(offset + 0.999, -offset-0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), mirror);
+    Shape* square = new Square(Vector3D(offset + 0.999, -offset - 0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), mirror);
 
     myScene.AddObject(s1);
     myScene.AddObject(s2);
     myScene.AddObject(square);
-
-    PointLightSource* myPointLight = new PointLightSource(Vector3D(0, 2.5, 3.0), Vector3D(2.0));
-    myScene.AddPointLight(myPointLight);
-
 }
 
 
@@ -229,10 +223,11 @@ int main()
     Vector3D intersectionColor(1,0,0);
     
     //First Assignment
-    Shader *shader = new IntersectionShader (intersectionColor, bgColor);
+    /*Shader *shader = new IntersectionShader (intersectionColor, bgColor);
     Shader *depthshader = new DepthShader (intersectionColor,7.5f, bgColor);
     Shader *normalshader = new Normalshader(intersectionColor, bgColor);
-    Shader *whittedshader = new WhittedIntshader(intersectionColor, bgColor);
+    Shader *whittedshader = new WhittedIntshader(intersectionColor, bgColor);*/
+    Shader *hemispherical = new HemisphericalDirectshader(intersectionColor, bgColor);
     //(... normal, whitted) ...
 
   
@@ -254,7 +249,7 @@ int main()
 
     // Launch some rays! TASK 2,3,...   
     auto start = high_resolution_clock::now();
-    raytrace(cam, whittedshader, film, myScene.objectsList, myScene.LightSourceList); 
+    raytrace(cam, hemispherical, film, myScene.objectsList, myScene.LightSourceList);
     //raytrace(cam, depthshader, film, myScene.objectsList, myScene.LightSourceList); 
     auto stop = high_resolution_clock::now();
 
@@ -272,3 +267,60 @@ int main()
     std::cout << "\n\n" << std::endl;
     return 0;
 }
+/*
+
+Matrix4x4 cameraToWorld = Matrix4x4::translate(Vector3D(0, 0, -3));
+double fovDegrees = 60;
+double fovRadians = Utils::degreesToRadians(fovDegrees);
+cam = new PerspectiveCamera(cameraToWorld, fovRadians, *film);
+
+
+Material* redDiffuse = new Phong(Vector3D(0.7, 0.2, 0.3), Vector3D(0, 0, 0), 100);
+Material* greenDiffuse = new Phong(Vector3D(0.2, 0.7, 0.3), Vector3D(0, 0, 0), 100);
+Material* greyDiffuse = new Phong(Vector3D(0.8, 0.8, 0.8), Vector3D(0, 0, 0), 100);
+Material* blueGlossy_20 = new Phong(Vector3D(0.2, 0.3, 0.8), Vector3D(0.8, 0.8, 0.8), 20);
+Material* blueGlossy_80 = new Phong(Vector3D(0.2, 0.3, 0.8), Vector3D(0.8, 0.8, 0.8), 80);
+Material* cyandiffuse = new Phong(Vector3D(0.2, 0.8, 0.8), Vector3D(0, 0, 0), 100);
+
+//Task 5.3
+Material* mirror = new Mirror();
+//Task 5.4
+Material* transmissive = new Transmissive(0.7);
+
+
+double offset = 3.0;
+Matrix4x4 idTransform;
+// Construct the Cornell Box
+Shape* leftPlan = new InfinitePlan(Vector3D(-offset - 1, 0, 0), Vector3D(1, 0, 0), redDiffuse);
+Shape* rightPlan = new InfinitePlan(Vector3D(offset + 1, 0, 0), Vector3D(-1, 0, 0), greenDiffuse);
+Shape* topPlan = new InfinitePlan(Vector3D(0, offset, 0), Vector3D(0, -1, 0), greyDiffuse);
+Shape* bottomPlan = new InfinitePlan(Vector3D(0, -offset, 0), Vector3D(0, 1, 0), greyDiffuse);
+Shape* backPlan = new InfinitePlan(Vector3D(0, 0, 3 * offset), Vector3D(0, 0, -1), greyDiffuse);
+
+myScene.AddObject(leftPlan);
+myScene.AddObject(rightPlan);
+myScene.AddObject(topPlan);
+myScene.AddObject(bottomPlan);
+myScene.AddObject(backPlan);
+
+
+// Place the Spheres and square inside the Cornell Box
+double radius = 1;
+Matrix4x4 sphereTransform1;
+sphereTransform1 = Matrix4x4::translate(Vector3D(1.5, -offset + radius, 6));
+Shape* s1 = new Sphere(radius, sphereTransform1, blueGlossy_20);
+
+Matrix4x4 sphereTransform2;
+sphereTransform2 = Matrix4x4::translate(Vector3D(-1.5, -offset + 3 * radius, 4));
+//We change the material to a transmissive one
+Shape* s2 = new Sphere(radius, sphereTransform2, transmissive); //blueGlossy_80 
+
+//We add the type of material mirror
+Shape* square = new Square(Vector3D(offset + 0.999, -offset - 0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), mirror);
+
+myScene.AddObject(s1);
+myScene.AddObject(s2);
+myScene.AddObject(square);
+
+PointLightSource* myPointLight = new PointLightSource(Vector3D(0, 2.5, 3.0), Vector3D(2.0));
+myScene.AddPointLight(myPointLight);*/

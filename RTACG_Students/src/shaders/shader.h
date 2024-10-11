@@ -18,6 +18,7 @@ public:
                              const std::vector<Shape*> &objList,
                              const std::vector<LightSource*> &lsList) const = 0;
 
+
     Vector3D bgColor;
 };
 

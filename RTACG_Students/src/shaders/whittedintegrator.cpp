@@ -75,24 +75,28 @@ Vector3D WhittedIntshader::computeColor(const Ray& r, const std::vector<Shape*>&
             Vector3D pd = its.shape->getMaterial().getDiffuseReflectance();
 
 
+
             int Vs = 1;
+           
 
             for (int i = 0; i < lsList.size(); i++) { 
+              
+                    Vector3D wi = (lsList.at(i)->sampleLightPosition() - its.itsPoint).normalized();
+                    Vector3D n = its.normal.normalized();
+                    Vector3D wo = -r.d;
+                    Vector3D reflectance = its.shape->getMaterial().getReflectance(n, wo, wi);   //Phong
+                    Ray robj;
+                    robj.o = its.itsPoint;
+                    robj.d = wi;
 
-                Vector3D wi = (lsList.at(i)->sampleLightPosition() - its.itsPoint).normalized(); 
-                Vector3D n = its.normal.normalized();  
-                Vector3D wo = -r.d;  
-                Vector3D reflectance = its.shape->getMaterial().getReflectance(n, wo, wi);   //Phong
-                Ray robj;  
-                robj.o = its.itsPoint;  
-                robj.d = wi;  
+                    robj.maxT = (robj.o - lsList.at(i)->sampleLightPosition()).length(); //We need to make a maximum to avoid this on to be infinite 
+                    if (Utils::hasIntersection(robj, objList)) {  //Not having visibility
+                        Vs = 0;
+                    }
+                    WhittedColor += reflectance * lsList.at(i)->getIntensity() * Vs * dot(n, wi);
 
-                robj.maxT = (robj.o - lsList.at(i)->sampleLightPosition()).length(); //We need to make a maximum to avoid this on to be infinite 
-                if (Utils::hasIntersection(robj, objList)) {  //Not having visibility
-                    Vs = 0;  
-                } 
-                WhittedColor += reflectance * lsList.at(i)->getIntensity() * Vs * dot(n, wi);  
-
+                
+                
             } 
             WhittedColor  = WhittedColor + at * pd;  
 
