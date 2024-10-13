@@ -56,6 +56,7 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     Material* emissive = new Emissive(Vector3D(25, 25, 25), Vector3D(0.5));
     Material* mirror = new Mirror();
     Material* transmissive = new Transmissive(0.7);
+
     /* ******* */
     /* Objects */
     /* ******* */
@@ -100,17 +101,16 @@ void buildSceneSphere(Camera*& cam, Film*& film,
     Scene myScene)
 {
     /* **************************** */
-      /* Declare and place the camera */
-      /* **************************** */
-      // By default, this gives an ID transform
-      //  which means that the camera is located at (0, 0, 0)
-      //  and looking at the "+z" direction
+    /* Declare and place the camera */
+    /* **************************** */
+
+    // By default, this gives an ID transform
+    //  which means that the camera is located at (0, 0, 0)
+    //  and looking at the "+z" direction
     Matrix4x4 cameraToWorld;
     double fovDegrees = 60;
     double fovRadians = Utils::degreesToRadians(fovDegrees);
     cam = new PerspectiveCamera(cameraToWorld, fovRadians, *film);
-
-
 
     /* ************************** */
     /* DEFINE YOUR MATERIALS HERE */
@@ -217,7 +217,6 @@ int main()
     Film *film;
     film = new Film(720, 512);
 
-
     // Declare the shader
     Vector3D bgColor(0.0, 0.0, 0.0); // Background color (for rays which do not intersect anything)
     Vector3D intersectionColor(1,0,0);
@@ -230,7 +229,6 @@ int main()
     Shader *hemispherical = new HemisphericalDirectshader(intersectionColor, bgColor);
     //(... normal, whitted) ...
 
-  
 
     // Build the scene---------------------------------------------------------
     // 
@@ -252,8 +250,6 @@ int main()
     raytrace(cam, hemispherical, film, myScene.objectsList, myScene.LightSourceList);
     //raytrace(cam, depthshader, film, myScene.objectsList, myScene.LightSourceList); 
     auto stop = high_resolution_clock::now();
-
-    
 
     // Save the final result to file
     std::cout << "\n\nSaving the result to file output.bmp\n" << std::endl;
