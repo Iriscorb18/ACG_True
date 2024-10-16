@@ -1,4 +1,3 @@
-﻿  scene.cpp
-  whittedintegrator.cpp
-  Generando código...
+﻿  hemisphericaldirectshader.cpp
+C:\Users\ebren\Documents\GitHub\ACG_True\RTACG_Students\src\shaders\hemisphericaldirectshader.cpp(132): warning C4715: 'HemisphericalDirectshader::computeColor': no todas las rutas de acceso de control devuelven un valor
   RTIS_V2.vcxproj -> C:\Users\ebren\Documents\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe

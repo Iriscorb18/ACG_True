@@ -78,7 +78,7 @@ Vector3D HemisphericalDirectshader::computeColor(const Ray& r, const std::vector
                 if (Utils::hasIntersection(robj, objList)) {  //Not having visibility
                     Vs = 0;
                 }
-                finalColor += reflectance * lsList.at(i)->getIntensity() * Vs * dot(n, wi);
+                finalColor += reflectance* lsList.at(i)->getIntensity() * Vs * dot(n, wi);
             } 
             finalColor += finalColor + at * pd;
         }
@@ -86,14 +86,14 @@ Vector3D HemisphericalDirectshader::computeColor(const Ray& r, const std::vector
         // Handle emissive materials
         else if (its.shape->getMaterial().isEmissive()) {
             Vector3D finalColor(0.0, 0.0, 0.0);
-            Vector3D n = its.normal.normalized(); 
+            Vector3D n = -its.normal.normalized(); 
             Vector3D wo = -r.d.normalized(); 
 
             int N = 256;  // Number of samples
             double p_omega = 1.0 / (2.0 * 3.14);  // Probability
 
             for (int i = 0; i < lsList.size(); i++) {
-                int Vs = 1;
+                //int Vs = 1;
 
                 // Sample the hemisphere
                 Vector3D wi = (lsList.at(i)->sampleLightPosition() - its.itsPoint).normalized();
@@ -103,9 +103,10 @@ Vector3D HemisphericalDirectshader::computeColor(const Ray& r, const std::vector
                 robj.o = its.itsPoint;
                 robj.d = wi;
                 robj.maxT = (robj.o - lsList.at(i)->sampleLightPosition()).length(); //We need to make a maximum to avoid this on to be infinite 
-                if (Utils::hasIntersection(robj, objList)) {  //Not having visibility
-                    Vs = 0;
-                }
+                //if (Utils::hasIntersection(robj, objList)) {  //Not having visibility
+                //    Vs = 0;
+                //}
+                
 
                 for (int j = 0; j < N; ++j) {
                     if (!Utils::hasIntersection(robj, objList)) {
@@ -120,6 +121,7 @@ Vector3D HemisphericalDirectshader::computeColor(const Ray& r, const std::vector
                     }
                 }
             }
+            
             return finalColor;
         }
     }
