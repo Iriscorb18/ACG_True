@@ -4,6 +4,7 @@
 #include "../materials/phong.h"
 #include "../core/utils.h"
 #include "../lightsources/lightsource.h"
+#include "../core/hemisphericalsampler.h"
 
 
 
@@ -56,74 +57,45 @@ Vector3D HemisphericalDirectshader::computeColor(const Ray& r, const std::vector
             Ray refractray = Ray(its.itsPoint, wt, r.depth + 1);
             finalColor += computeColor(refractray, objList, lsList);
         }
+        else if (its.shape->getMaterial().isEmissive() == true) {
+            finalColor += its.shape->getMaterial().getEmissiveRadiance();
+        }
 
         // Handle diffuse or glossy materials
         else if (its.shape->getMaterial().hasDiffuseOrGlossy()) {
-            Vector3D at = Vector3D(0.15, 0.15, 0.15); //Ambient term
+            Vector3D at = Vector3D(0.4); //Ambient term
             Vector3D pd = its.shape->getMaterial().getDiffuseReflectance();
             int Vs = 1;
+            Vector3D intensity;
+
+            double numSamples = 32;
+            HemisphericalSampler hs = HemisphericalSampler();
             
-            for (int i = 0; i < lsList.size(); i++) { 
-                Vector3D wi = (lsList.at(i)->sampleLightPosition() - its.itsPoint).normalized();
+            for (int i = 0; i < numSamples; i++) { 
+                Vector3D wi = hs.getSample(its.normal);
                 Vector3D n = its.normal.normalized();
                 Vector3D wo = -r.d;
-                Vector3D emitted_radiance = lsList.at(i)->getIntensity();
-                Vector3D reflectance = its.shape->getMaterial().getReflectance(n, wo, wi);   //Phong
-                
-                // Create shadow ray
                 Ray robj;
                 robj.o = its.itsPoint;
                 robj.d = wi;
-                robj.maxT = (robj.o - lsList.at(i)->sampleLightPosition()).length(); //We need to make a maximum to avoid this on to be infinite 
-                if (Utils::hasIntersection(robj, objList)) {  //Not having visibility
-                    Vs = 0;
+                Intersection its_hemis;
+                if (Utils::getClosestIntersection(robj, objList,its_hemis)) {
+                    intensity = its_hemis.shape->getMaterial().getEmissiveRadiance();
                 }
-                finalColor += reflectance* lsList.at(i)->getIntensity() * Vs * dot(n, wi);
+                else {
+                    intensity = Vector3D(0.0);
+                }
+                Vector3D reflectance = its.shape->getMaterial().getReflectance(n, -wi, r.d);   //Phong
+                
+                
+                finalColor += ((reflectance* intensity *  dot(n, wi))/(1/(2*3.14)));
             } 
-            finalColor += finalColor + at * pd;
+            finalColor +=finalColor *(1 / numSamples) + at * pd;
         }
 
-        // Handle emissive materials
-        else if (its.shape->getMaterial().isEmissive()) {
-            Vector3D finalColor(0.0, 0.0, 0.0);
-            Vector3D n = -its.normal.normalized(); 
-            Vector3D wo = -r.d.normalized(); 
-
-            int N = 256;  // Number of samples
-            double p_omega = 1.0 / (2.0 * 3.14);  // Probability
-
-            for (int i = 0; i < lsList.size(); i++) {
-                //int Vs = 1;
-
-                // Sample the hemisphere
-                Vector3D wi = (lsList.at(i)->sampleLightPosition() - its.itsPoint).normalized();
-
-                // Create shadow ray
-                Ray robj;
-                robj.o = its.itsPoint;
-                robj.d = wi;
-                robj.maxT = (robj.o - lsList.at(i)->sampleLightPosition()).length(); //We need to make a maximum to avoid this on to be infinite 
-                //if (Utils::hasIntersection(robj, objList)) {  //Not having visibility
-                //    Vs = 0;
-                //}
-                
-
-                for (int j = 0; j < N; ++j) {
-                    if (!Utils::hasIntersection(robj, objList)) {
-                        // Emitted radiance from the light source
-                        Vector3D L_dir_i = lsList.at(i)->getIntensity();
-
-                        // BRDF value at this point (Phong or other BRDF)
-                        Vector3D brdf = its.shape->getMaterial().getReflectance(n, wo, wi);
-
-                        // Accumulate the radiance using Monte Carlo integration
-                        finalColor += (L_dir_i * brdf * dot(n, wi)) / (p_omega * N);
-                    }
-                }
-            }
-            
-            return finalColor;
-        }
+        
+        return finalColor;
+       
     }
        
     else {
