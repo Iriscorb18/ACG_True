@@ -14,10 +14,7 @@ Vector3D AreaLightSource::getIntensity() const
 
 Vector3D AreaLightSource::sampleLightPosition()   const
 {
-    //FILL(...)
-    // 
-    //New Randam Pos inside Area Lightsource????
-     // Corner and edge vectors that define the area light
+    // Corner and edge vectors that define the area light
     Vector3D corner = myAreaLightsource->corner;
     Vector3D v1 = myAreaLightsource->v1;
     Vector3D v2 = myAreaLightsource->v2;
@@ -28,7 +25,7 @@ Vector3D AreaLightSource::sampleLightPosition()   const
 
     // Generate a random point inside the rectangle by scaling along the edges
     Vector3D randomPoint = corner + v1*u + v2*v;
+    
     return randomPoint;
-
 }
 

@@ -19,7 +19,7 @@
 #include "shaders/normalshader.h"
 #include "shaders/whittedintegrator.h"
 #include "shaders/hemisphericaldirectshader.h"
-
+#include "shaders/areadirectshader.h"
 
 #include "materials/phong.h"
 #include "materials/emissive.h"
@@ -37,8 +37,8 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     Scene myScene)
 {
     /* **************************** */
-/* Declare and place the camera */
-/* **************************** */
+    /* Declare and place the camera */
+    /* **************************** */
     Matrix4x4 cameraToWorld = Matrix4x4::translate(Vector3D(0, 0, -3));
     double fovDegrees = 60;
     double fovRadians = Utils::degreesToRadians(fovDegrees);
@@ -222,14 +222,13 @@ int main()
     Vector3D bgColor(0.0, 0.0, 0.0); // Background color (for rays which do not intersect anything)
     Vector3D intersectionColor(1,0,0);
     
-    //First Assignment
-    /*Shader *shader = new IntersectionShader (intersectionColor, bgColor);
-    Shader *depthshader = new DepthShader (intersectionColor,7.5f, bgColor);
-    Shader *normalshader = new Normalshader(intersectionColor, bgColor);
-    Shader *whittedshader = new WhittedIntshader(intersectionColor, bgColor);*/
-    Shader *hemispherical = new HemisphericalDirectshader(intersectionColor, bgColor);
-    //(... normal, whitted) ...
-
+    // Assignment
+    //Shader *shader = new IntersectionShader (intersectionColor, bgColor);
+    //Shader *shader = new DepthShader (intersectionColor,7.5f, bgColor);
+    //Shader *shader = new Normalshader(intersectionColor, bgColor);
+    //Shader *shader = new WhittedIntshader(intersectionColor, bgColor);
+    //Shader* shader = new HemisphericalDirectshader(intersectionColor, bgColor);
+    Shader *shader = new AreaDirectshader(intersectionColor, bgColor);
 
     // Build the scene---------------------------------------------------------
     // 
@@ -248,7 +247,7 @@ int main()
 
     // Launch some rays! TASK 2,3,...   
     auto start = high_resolution_clock::now();
-    raytrace(cam, hemispherical, film, myScene.objectsList, myScene.LightSourceList);
+    raytrace(cam, shader, film, myScene.objectsList, myScene.LightSourceList);
     //raytrace(cam, depthshader, film, myScene.objectsList, myScene.LightSourceList); 
     auto stop = high_resolution_clock::now();
 

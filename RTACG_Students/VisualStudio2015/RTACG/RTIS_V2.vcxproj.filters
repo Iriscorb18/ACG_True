@@ -126,6 +126,9 @@
     <ClCompile Include="..\..\src\shaders\hemisphericaldirectshader.cpp">
       <Filter>src\shaders</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\shaders\areadirectshader.cpp">
+      <Filter>src\shaders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\cameras\camera.h">
@@ -222,6 +225,9 @@
       <Filter>src\materials</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\shaders\hemisphericaldirectshader.h">
+      <Filter>src\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shaders\areadirectshader.h">
       <Filter>src\shaders</Filter>
     </ClInclude>
   </ItemGroup>

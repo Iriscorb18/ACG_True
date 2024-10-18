@@ -1,3 +1,1 @@
-﻿  hemisphericaldirectshader.cpp
-C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\hemisphericaldirectshader.cpp(134,1): warning C4715: 'HemisphericalDirectshader::computeColor': not all control paths return a value
-  RTIS_V2.vcxproj -> C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe
+﻿  RTIS_V2.vcxproj -> C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe

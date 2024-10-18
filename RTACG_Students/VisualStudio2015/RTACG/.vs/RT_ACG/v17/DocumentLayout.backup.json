@@ -3,19 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\VisualStudio2015\\RTACG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\lightsources\\arealightsource.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\core\\utils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\lightsources\\arealightsource.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,7 +28,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -33,7 +36,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "areadirectshader.h",
+              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.h",
+              "RelativeDocumentMoniker": "..\\..\\src\\shaders\\areadirectshader.h",
+              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.h",
+              "RelativeToolTip": "..\\..\\src\\shaders\\areadirectshader.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-18T21:38:30.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "areadirectshader.cpp",
+              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.cpp",
+              "RelativeDocumentMoniker": "..\\..\\src\\shaders\\areadirectshader.cpp",
+              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.cpp",
+              "RelativeToolTip": "..\\..\\src\\shaders\\areadirectshader.cpp",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAHUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T21:38:28.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "hemisphericaldirectshader.cpp",
+              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.cpp",
+              "RelativeDocumentMoniker": "..\\..\\src\\shaders\\hemisphericaldirectshader.cpp",
+              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.cpp",
+              "RelativeToolTip": "..\\..\\src\\shaders\\hemisphericaldirectshader.cpp",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAAGUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-18T21:38:24.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "utils.cpp",
               "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\core\\utils.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\core\\utils.cpp",
@@ -46,52 +88,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "hemisphericaldirectshader.cpp",
-              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.cpp",
-              "RelativeDocumentMoniker": "..\\..\\src\\shaders\\hemisphericaldirectshader.cpp",
-              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.cpp",
-              "RelativeToolTip": "..\\..\\src\\shaders\\hemisphericaldirectshader.cpp",
-              "ViewState": "AgIAAGAAAAAAAAAAAADwv3YAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-13T08:44:02.075Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "arealightsource.cpp",
               "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\lightsources\\arealightsource.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\lightsources\\arealightsource.cpp",
               "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\lightsources\\arealightsource.cpp",
               "RelativeToolTip": "..\\..\\src\\lightsources\\arealightsource.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-13T09:04:08.768Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "hemisphericaldirectshader.h",
-              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.h",
-              "RelativeDocumentMoniker": "..\\..\\src\\shaders\\hemisphericaldirectshader.h",
-              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.h",
-              "RelativeToolTip": "..\\..\\src\\shaders\\hemisphericaldirectshader.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-13T08:43:53.765Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\main.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\main.cpp",
               "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\main.cpp",
               "RelativeToolTip": "..\\..\\src\\main.cpp",
-              "ViewState": "AgIAAOoAAAAAAAAAAAAAAPsAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAO4AAAAAAAAAAAAQwPgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-13T08:40:12.467Z",
               "EditorCaption": ""
