@@ -76,7 +76,7 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     myScene.AddObject(topPlan);
     myScene.AddObject(bottomPlan);
     myScene.AddObject(backPlan);
-    myScene.AddObject(square_emissive);
+    myScene.AddObject(square_emissive); //Enters inside the lightlist since its emissive
 
 
     // Place the Spheres inside the Cornell Box
@@ -94,6 +94,7 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     myScene.AddObject(s1);
     myScene.AddObject(s2);
     myScene.AddObject(square);
+    
 }
 
 

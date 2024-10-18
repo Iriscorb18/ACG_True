@@ -17,12 +17,18 @@ Vector3D AreaLightSource::sampleLightPosition()   const
     //FILL(...)
     // 
     //New Randam Pos inside Area Lightsource????
-    /*Vector3D corner = myAreaLightsource->corner;
-    Vector3D max_corner = (myAreaLightsource->v2 + myAreaLightsource->v1)+corner;
-    int pos_x = rand()*max_corner.x;
-    int pos_y = rand() * max_corner.y;
-    int pos_z = rand() * max_corner.z;
-    return Vector3D(pos_x,pos_y,pos_z);*/
-    return Vector3D(0.0, 0.0, 0.0);
+     // Corner and edge vectors that define the area light
+    Vector3D corner = myAreaLightsource->corner;
+    Vector3D v1 = myAreaLightsource->v1;
+    Vector3D v2 = myAreaLightsource->v2;
+
+    // Generate random floats between 0 and 1
+    double u = (double)(rand()) / RAND_MAX;
+    double v = (double)(rand()) / RAND_MAX;
+
+    // Generate a random point inside the rectangle by scaling along the edges
+    Vector3D randomPoint = corner + v1*u + v2*v;
+    return randomPoint;
+
 }
 
