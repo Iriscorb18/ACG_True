@@ -7,6 +7,7 @@
 #include "../lightsources/pointlightsource.h"
 #include "../lightsources/arealightsource.h"
 #include "../shapes/shape.h"
+#include "../core/scene.h"
 
 class Shader
 {
@@ -17,7 +18,7 @@ public:
     virtual Vector3D computeColor(const Ray &r,
                              const std::vector<Shape*> &objList,
                              const std::vector<LightSource*> &lsList) const = 0;
-
+   
 
     Vector3D bgColor;
 };

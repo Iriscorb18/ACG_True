@@ -170,6 +170,7 @@
     <ClCompile Include="..\..\src\shaders\hemisphericaldirectshader.cpp" />
     <ClCompile Include="..\..\src\shaders\intersectionshader.cpp" />
     <ClCompile Include="..\..\src\shaders\normalshader.cpp" />
+    <ClCompile Include="..\..\src\shaders\pathtracershader.cpp" />
     <ClCompile Include="..\..\src\shaders\shader.cpp" />
     <ClCompile Include="..\..\src\shaders\whittedintegrator.cpp" />
     <ClCompile Include="..\..\src\shapes\infiniteplan.cpp" />
@@ -205,6 +206,7 @@
     <ClInclude Include="..\..\src\shaders\hemisphericaldirectshader.h" />
     <ClInclude Include="..\..\src\shaders\intersectionshader.h" />
     <ClInclude Include="..\..\src\shaders\normalshader.h" />
+    <ClInclude Include="..\..\src\shaders\pathtracershader.h" />
     <ClInclude Include="..\..\src\shaders\shader.h" />
     <ClInclude Include="..\..\src\shaders\whittedintegrator.h" />
     <ClInclude Include="..\..\src\shapes\infiniteplan.h" />

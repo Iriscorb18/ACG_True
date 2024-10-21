@@ -1,6 +1,7 @@
 #include "shader.h"
 
 
+
 class WhittedIntshader : public Shader
 {
 public:

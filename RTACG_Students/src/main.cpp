@@ -20,6 +20,7 @@
 #include "shaders/whittedintegrator.h"
 #include "shaders/hemisphericaldirectshader.h"
 #include "shaders/areadirectshader.h"
+#include "shaders/pathtracershader.h"
 
 #include "materials/phong.h"
 #include "materials/emissive.h"
@@ -228,7 +229,8 @@ int main()
     //Shader *shader = new Normalshader(intersectionColor, bgColor);
     //Shader *shader = new WhittedIntshader(intersectionColor, bgColor);
     //Shader* shader = new HemisphericalDirectshader(intersectionColor, bgColor);
-    Shader *shader = new AreaDirectshader(intersectionColor, bgColor);
+    //Shader *shader = new AreaDirectshader(intersectionColor, bgColor);
+    Shader* shader = new Pathtracershader(intersectionColor, bgColor);
 
     // Build the scene---------------------------------------------------------
     // 
