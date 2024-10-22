@@ -1,1 +1,7 @@
-﻿  RTIS_V2.vcxproj -> C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe
+﻿  main.cpp
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(262,21): warning C4244: 'initializing': conversion from '_Rep' to 'float', possible loss of data
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(262,21): warning C4244:         with
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(262,21): warning C4244:         [
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(262,21): warning C4244:             _Rep=double
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(262,21): warning C4244:         ]
+  RTIS_V2.vcxproj -> C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe

@@ -18,10 +18,13 @@ C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\materials\material.cpp;C:\User
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\materials\mirror.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\mirror.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\materials\phong.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\phong.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\materials\transmissive.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\transmissive.obj
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\areadirectshader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\areadirectshader.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\depthshader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\depthshader.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\hemisphericaldirectshader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\hemisphericaldirectshader.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\intersectionshader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\intersectionshader.obj
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\nee.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\nee.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\normalshader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\normalshader.obj
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\pathtracershader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\pathtracershader.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\shader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\shader.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\whittedintegrator.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\whittedintegrator.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shapes\infiniteplan.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Debug\infiniteplan.obj

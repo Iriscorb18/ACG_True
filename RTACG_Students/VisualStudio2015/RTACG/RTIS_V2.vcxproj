@@ -169,6 +169,7 @@
     <ClCompile Include="..\..\src\shaders\depthshader.cpp" />
     <ClCompile Include="..\..\src\shaders\hemisphericaldirectshader.cpp" />
     <ClCompile Include="..\..\src\shaders\intersectionshader.cpp" />
+    <ClCompile Include="..\..\src\shaders\nee.cpp" />
     <ClCompile Include="..\..\src\shaders\normalshader.cpp" />
     <ClCompile Include="..\..\src\shaders\pathtracershader.cpp" />
     <ClCompile Include="..\..\src\shaders\shader.cpp" />
@@ -205,6 +206,7 @@
     <ClInclude Include="..\..\src\shaders\depthshader.h" />
     <ClInclude Include="..\..\src\shaders\hemisphericaldirectshader.h" />
     <ClInclude Include="..\..\src\shaders\intersectionshader.h" />
+    <ClInclude Include="..\..\src\shaders\nee.h" />
     <ClInclude Include="..\..\src\shaders\normalshader.h" />
     <ClInclude Include="..\..\src\shaders\pathtracershader.h" />
     <ClInclude Include="..\..\src\shaders\shader.h" />

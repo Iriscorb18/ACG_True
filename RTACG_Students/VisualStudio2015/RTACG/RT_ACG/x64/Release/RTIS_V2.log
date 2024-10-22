@@ -1,13 +1,13 @@
 ﻿  main.cpp
-C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(259,21): warning C4244: 'initializing': conversion from '_Rep' to 'float', possible loss of data
-C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(259,21): warning C4244:         with
-C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(259,21): warning C4244:         [
-C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(259,21): warning C4244:             _Rep=double
-C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(259,21): warning C4244:         ]
-  hemisphericaldirectshader.cpp
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(262,21): warning C4244: 'initializing': conversion from '_Rep' to 'float', possible loss of data
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(262,21): warning C4244:         with
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(262,21): warning C4244:         [
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(262,21): warning C4244:             _Rep=double
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\main.cpp(262,21): warning C4244:         ]
+  nee.cpp
   Generating code
-  21 of 982 functions ( 2.1%) were compiled, the rest were copied from previous compilation.
+  16 of 982 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    51 functions had inline decision re-evaluated but remain unchanged
+    32 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   RTIS_V2.vcxproj -> C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\x64\Release\RT_ACG.exe

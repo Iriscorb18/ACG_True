@@ -22,7 +22,9 @@ C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\areadirectshader.cpp;C
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\depthshader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Release\depthshader.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\hemisphericaldirectshader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Release\hemisphericaldirectshader.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\intersectionshader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Release\intersectionshader.obj
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\nee.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Release\nee.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\normalshader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Release\normalshader.obj
+C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\pathtracershader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Release\pathtracershader.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\shader.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Release\shader.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shaders\whittedintegrator.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Release\whittedintegrator.obj
 C:\Users\alexp\GitHub\ACG_True\RTACG_Students\src\shapes\infiniteplan.cpp;C:\Users\alexp\GitHub\ACG_True\RTACG_Students\VisualStudio2015\RTACG\RT_ACG\x64\Release\infiniteplan.obj
