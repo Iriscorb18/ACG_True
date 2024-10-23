@@ -178,8 +178,6 @@ void raytrace(Camera* &cam, Shader* &shader, Film* &film,
             film->setPixelValue(col, lin, pixelColor);
         }
     }
-
-
 }
 
 
@@ -229,8 +227,8 @@ int main()
     //Shader *shader = new Normalshader(intersectionColor, bgColor);
     //Shader *shader = new WhittedIntshader(intersectionColor, bgColor);
     //Shader* shader = new HemisphericalDirectshader(intersectionColor, bgColor);
-    Shader *shader = new AreaDirectshader(intersectionColor, bgColor);
-    //Shader* shader = new Pathtracershader(intersectionColor, bgColor);
+    //Shader *shader = new AreaDirectshader(intersectionColor, bgColor);
+    Shader* shader = new Pathtracershader(intersectionColor, bgColor);
     //Shader* shader = new Neeshader(intersectionColor, bgColor);
 
     // Build the scene---------------------------------------------------------

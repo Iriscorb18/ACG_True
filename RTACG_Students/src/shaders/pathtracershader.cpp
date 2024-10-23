@@ -17,14 +17,63 @@ Pathtracershader::Pathtracershader(Vector3D PTColor_, Vector3D bgColor_) :
     Shader(bgColor_), PTColor(PTColor_)
 { }
 
-Vector3D Pathtracershader::ComputeRadiance(const Ray& r, Scene& scene, int max_depth, Intersection itsscene, HemisphericalSampler hs, Vector3D Lo, Vector3D wi) const {
+Vector3D Pathtracershader::ComputeRadiance(const Ray& r, const std::vector<Shape*>& objList, const std::vector<LightSource*>& lsList, int max_depth, Intersection itsscene, HemisphericalSampler hs, Vector3D wi) const {
     
-    float pdf = (1/(dot(wi,itsscene.normal)/3.14));
-    if (r.depth < max_depth) {
-        Ray r_new = Ray(itsscene.itsPoint, wi, r.depth + 1);
-        Vector3D BRDF = itsscene.shape->getMaterial().getReflectance(itsscene.normal, -wi, r.d) * (dot(itsscene.normal, wi));
-        Lo = ComputeRadiance(r_new, scene, max_depth, itsscene, hs, Lo, wi) * BRDF*pdf;
+    Vector3D Lo(0.0);
+    float pdf = (1.0 / (2 * 3.14));
+    Vector3D radiance(0.0);
+    
+    // posar tots els casos en comptes de color, computeradiance
+    
+
+    // Handle transmissive materials (refraction)
+    if (itsscene.shape->getMaterial().hasTransmission()) {
+        Vector3D wt;
+        Vector3D n = itsscene.normal.normalized();
+        Vector3D wo = r.d.normalized();
+        double ratio = 0.7;
+
+        // Invert ratio and normal for internal rays
+        if (dot(wo, n) > 0) {
+            ratio = 1 / ratio;
+            n = -n;
+        }
+
+        // Check for total internal reflection
+        if (1 - ratio * ratio * (1 - (pow(dot(-wo, n), 2))) >= 0) {  //radical is higher than zero
+            Vector3D a1 = -sqrt(1 - ratio * ratio * (1 - (pow(dot(-wo, n), 2)))) + ratio * dot(-wo, n);
+            Vector3D a2 = (-wo) * ratio;
+            wt = n * a1 - a2;
+        }
+        else {
+            wt = Utils::computeReflectionDirection(wo, n); //Total internal reflection if radical is smaller than zero
+        }
+
+        Ray refractray = Ray(itsscene.itsPoint, wt, r.depth + 1);
+        Lo = ComputeRadiance(refractray, objList, lsList, max_depth, itsscene, hs,wt);
     }
+    else if (itsscene.shape->getMaterial().isEmissive()) {
+        return itsscene.shape->getMaterial().getEmissiveRadiance();
+    }
+    else {
+        if (r.depth <= max_depth) {
+            Lo = itsscene.shape->getMaterial().getEmissiveRadiance();
+            HemisphericalSampler hs_new = HemisphericalSampler();
+            Vector3D wi_new = hs_new.getSample(itsscene.normal);
+            Ray r_new = Ray(itsscene.itsPoint, wi_new, r.depth + 1);
+            Vector3D BRDF = itsscene.shape->getMaterial().getReflectance(itsscene.normal, wi_new, -r_new.d) * dot(itsscene.normal, wi_new);
+            Intersection new_int;
+            if (Utils::getClosestIntersection(r_new, objList, new_int)) {
+                Lo += ComputeRadiance(r_new, objList, lsList, max_depth, new_int, hs, wi_new) * BRDF / pdf;
+            }
+        
+        }
+    
+       
+
+
+    }
+    
     return Lo;
 }
 
@@ -104,7 +153,7 @@ Vector3D Pathtracershader::computeColor(const Ray& r, const std::vector<Shape*>&
                 if (Utils::getClosestIntersection(robj, objList, its_hemis)) {
                     intensity = its_hemis.shape->getMaterial().getEmissiveRadiance();
                     
-                    radiance += ComputeRadiance(robj,scene, 1,its_hemis,hs,intensity,wi);
+                    radiance += ComputeRadiance(robj,objList, lsList, 2,its_hemis,hs,wi);
                     
                     
                 }
@@ -113,7 +162,7 @@ Vector3D Pathtracershader::computeColor(const Ray& r, const std::vector<Shape*>&
 
                 finalColor += ((reflectance * radiance * dot(n, wi)) / (1/pdf));
             }
-            finalColor = finalColor * (1 / numSamples) + at * pd;
+            finalColor = finalColor * (1 / numSamples);
 
         }
         return finalColor;

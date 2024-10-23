@@ -3,16 +3,31 @@
   "WorkspaceRootPath": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\VisualStudio2015\\RTACG\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\pathtracershader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\include\\cmath||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\NEE.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\pathtracershader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\nee.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\pathtracershader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\core\\ray.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\lightsources\\lightsource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\NEE.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -21,13 +36,7 @@
       "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\core\\utils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\lightsources\\arealightsource.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,71 +54,123 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "nee.h",
-              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\nee.h",
-              "RelativeDocumentMoniker": "..\\..\\src\\shaders\\nee.h",
-              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\nee.h",
-              "RelativeToolTip": "..\\..\\src\\shaders\\nee.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-22T13:59:35.086Z",
+              "DocumentIndex": 1,
+              "Title": "cmath",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\include\\cmath",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\include\\cmath",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\include\\cmath",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\include\\cmath",
+              "ViewState": "AgIAAA4DAAAAAAAAAADgvyADAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-23T14:31:19.259Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "pathtracershader.h",
+              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\pathtracershader.h",
+              "RelativeDocumentMoniker": "..\\..\\src\\shaders\\pathtracershader.h",
+              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\pathtracershader.h",
+              "RelativeToolTip": "..\\..\\src\\shaders\\pathtracershader.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAC9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-23T14:13:19.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ray.h",
+              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\core\\ray.h",
+              "RelativeDocumentMoniker": "..\\..\\src\\core\\ray.h",
+              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\core\\ray.h",
+              "RelativeToolTip": "..\\..\\src\\core\\ray.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-23T12:54:58.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "nee.cpp",
               "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\nee.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\shaders\\nee.cpp",
               "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\nee.cpp",
               "RelativeToolTip": "..\\..\\src\\shaders\\nee.cpp",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAJUAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAFIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-22T13:55:55.746Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
+              "Title": "lightsource.h",
+              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\lightsources\\lightsource.h",
+              "RelativeDocumentMoniker": "..\\..\\src\\lightsources\\lightsource.h",
+              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\lightsources\\lightsource.h",
+              "RelativeToolTip": "..\\..\\src\\lightsources\\lightsource.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-23T10:38:15.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\main.cpp",
+              "RelativeDocumentMoniker": "..\\..\\src\\main.cpp",
+              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\main.cpp",
+              "RelativeToolTip": "..\\..\\src\\main.cpp",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAFoAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-13T08:40:12.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "pathtracershader.cpp",
               "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\pathtracershader.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\shaders\\pathtracershader.cpp",
               "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\pathtracershader.cpp",
               "RelativeToolTip": "..\\..\\src\\shaders\\pathtracershader.cpp",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEIAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-22T13:51:30.422Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "areadirectshader.cpp",
               "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\shaders\\areadirectshader.cpp",
               "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.cpp",
               "RelativeToolTip": "..\\..\\src\\shaders\\areadirectshader.cpp",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAAAHUAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAIwG4AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-18T21:38:28.887Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "hemisphericaldirectshader.cpp",
               "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\shaders\\hemisphericaldirectshader.cpp",
               "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\hemisphericaldirectshader.cpp",
               "RelativeToolTip": "..\\..\\src\\shaders\\hemisphericaldirectshader.cpp",
-              "ViewState": "AgIAADUAAAAAAAAAAAAAAGUAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAACKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-18T21:38:24.304Z"
+              "WhenOpened": "2024-10-18T21:38:24.304Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "utils.cpp",
               "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\core\\utils.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\core\\utils.cpp",
@@ -117,24 +178,24 @@
               "RelativeToolTip": "..\\..\\src\\core\\utils.cpp",
               "ViewState": "AgIAAC0AAAAAAAAAAAAgwFIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-13T09:23:39.568Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\main.cpp",
-              "RelativeDocumentMoniker": "..\\..\\src\\main.cpp",
-              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\main.cpp",
-              "RelativeToolTip": "..\\..\\src\\main.cpp",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAUwFoAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-13T08:40:12.467Z",
+              "WhenOpened": "2024-10-13T09:23:39.568Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
+              "Title": "nee.h",
+              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\nee.h",
+              "RelativeDocumentMoniker": "..\\..\\src\\shaders\\nee.h",
+              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\nee.h",
+              "RelativeToolTip": "..\\..\\src\\shaders\\nee.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAACiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-22T13:59:35.086Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "areadirectshader.h",
               "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\shaders\\areadirectshader.h",
               "RelativeDocumentMoniker": "..\\..\\src\\shaders\\areadirectshader.h",
@@ -143,18 +204,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-18T21:38:30.858Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "arealightsource.cpp",
-              "DocumentMoniker": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\lightsources\\arealightsource.cpp",
-              "RelativeDocumentMoniker": "..\\..\\src\\lightsources\\arealightsource.cpp",
-              "ToolTip": "C:\\Users\\alexp\\GitHub\\ACG_True\\RTACG_Students\\src\\lightsources\\arealightsource.cpp",
-              "RelativeToolTip": "..\\..\\src\\lightsources\\arealightsource.cpp",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-13T09:04:08.768Z"
             }
           ]
         }

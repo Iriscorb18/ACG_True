@@ -15,36 +15,112 @@ Neeshader::Neeshader(Vector3D NEEColor_, Vector3D bgColor_) :
     Shader(bgColor_), NEEColor(NEEColor_)
 { }
 
-//COMPUTING INDIRECT RADIANCE
-Vector3D Neeshader::ComputeRadiance(const Ray& r, const std::vector<Shape*>& objList, const std::vector<LightSource*>& lsList, int max_depth, Intersection itsscene, HemisphericalSampler hs, Vector3D wi, double A) const {
-
-    Vector3D Lo(0.0);
-
-    Vector3D radiance(0.0);
-    if (r.depth <= max_depth) {
-        Lo = itsscene.shape->getMaterial().getEmissiveRadiance();
-        HemisphericalSampler hs_new = HemisphericalSampler();
-        Vector3D wi_new = hs_new.getSample(itsscene.normal);
-        Ray r_new = Ray(itsscene.itsPoint, wi_new, r.depth + 1);
-        Vector3D BRDF = itsscene.shape->getMaterial().getReflectance(itsscene.normal, wi_new, -r_new.d) * (dot(itsscene.normal, wi_new));
-        Intersection new_int;
-        if (Utils::getClosestIntersection(r_new, objList, new_int)) {
-            Lo += ComputeRadiance(r_new, objList, lsList, max_depth, new_int, hs, wi_new, A) * BRDF / (1 / A);
-        }
-        //Review if its transmissive or mirror view recursive iteration compute color
+Vector3D Neeshader::ComputeRadiance(const Ray& r, const std::vector<Shape*>& objList, const std::vector<LightSource*>& lsList, int depth, Intersection its) const {
+    Intersection its_scene;
+    // Find intersection of ray with scene objects
+    if (!Utils::getClosestIntersection(r, objList, its_scene)) {
+        return bgColor; // Background color if no hit
     }
-    return Lo;
+
+    // Emitted radiance (directly from the surface)
+    
+
+    Vector3D Lr(0.0);
+    Vector3D Le(0.0);
+
+    int numSamples = 256;
+    for (int i = 0; i < numSamples; i++) {
+
+        // Reflected radiance from the surface (calls the reflected radiance function)
+       
+        Lr += ReflectedRadiance(its_scene, -r.d, depth, objList, lsList);
+    }
+    Lr /= (double)numSamples;
+    Le = its_scene.shape->getMaterial().getEmissiveRadiance();
+
+    // Return the sum of emitted and reflected radiance
+    return (Le+Lr);
 }
-//ENDING OF FUCNTION
+
+
+Vector3D Neeshader::ReflectedRadiance(const Intersection& its, const Vector3D& wo, int depth, const std::vector<Shape*>& objList, const std::vector<LightSource*>& lsList) const {
+    // Compute direct illumination
+    Vector3D Ldir = DirectRadiance(its, wo, objList, lsList);
+
+    // Compute indirect illumination (via hemisphere sampling for global illumination)
+    Vector3D Lind = IndirectRadiance(its, wo, depth, objList, lsList);
+
+    // Return the sum of direct and indirect radiance
+    return Ldir + Lind;
+}
+
+Vector3D Neeshader::DirectRadiance(const Intersection& its, const Vector3D& wo, const std::vector<Shape*>& objList, const std::vector<LightSource*>& lsList) const {
+    Vector3D directIllumination(0.0);
+
+    for (int j = 0; j < lsList.size(); j++) {
+        // Sample random point on the light source
+        Vector3D y = lsList.at(j)->sampleLightPosition();
+        double pdf = 1.0 / lsList.at(j)->getArea(); // Assuming uniform area sampling
+
+        // Compute direction to light source
+        Vector3D wi = (y - its.itsPoint).normalized();
+
+        // Visibility check
+        Ray shadowRay(its.itsPoint, wi);
+        shadowRay.maxT = (y - its.itsPoint).length() - 0.01;
+        bool visible = !Utils::hasIntersection(shadowRay, objList); // Visibility test
+
+        // If the light is visible, compute the contribution
+        if (visible) {
+            Vector3D Le = lsList.at(j)->getIntensity(); // Light intensity
+            Vector3D brdf = its.shape->getMaterial().getReflectance(its.normal, wi, wo); // BRDF
+            Vector3D ny = lsList.at(j)->getNormal(); // Light surface normal
+            double G = (dot(its.normal, wi) * dot(-wi, ny)) / (y - its.itsPoint).lengthSq(); // Geometric term
+
+            // Monte Carlo estimate for direct lighting
+            directIllumination += Le * brdf * G / pdf;
+        }
+    }
+    return directIllumination;
+}
+
+
+Vector3D Neeshader::IndirectRadiance(const Intersection& its, const Vector3D& wo, int depth, const std::vector<Shape*>& objList, const std::vector<LightSource*>& lsList) const {
+    Vector3D Lind(0.0);
+    
+    const int maxDepth = 2; // Set a reasonable depth for recursive ray tracing
+    
+    // Sample a new direction from the hemisphere over the surface normal
+    HemisphericalSampler hs;
+    Vector3D wi = hs.getSample(its.normal);
+    double pdf = 1.0 / (2.0 * 3.14); // Hemisphere sampling PDF
+
+    // Create a new ray for indirect lighting
+    Ray newRay(its.itsPoint, wi, depth + 1);
+
+    // Intersect with the scene
+    Intersection newIts;
+
+    if (Utils::getClosestIntersection(newRay, objList, newIts)) {
+        if (depth < maxDepth) { // Stop recursion at max depth
+            // Recursively calculate indirect lighting
+            Vector3D brdf = its.shape->getMaterial().getReflectance(its.normal, wi, wo);
+            Lind += ReflectedRadiance(newIts, -wi, depth + 1, objList, lsList) * brdf * dot(its.normal, wi) / pdf;
+        }
+        return Lind;
+    }
+}
+
 
 Vector3D Neeshader::computeColor(const Ray& r, const std::vector<Shape*>& objList, const std::vector<LightSource*>& lsList) const
 {
     Intersection its;
     Scene scene;
+   
 
     if (Utils::getClosestIntersection(r, objList, its)) { //Loop through all objects to see their closest intersection
         Vector3D finalColor = Vector3D(0.0, 0.0, 0.0);
-        Vector3D reflectedradiance(0.0);
+
         // Handle specular materials
         if (its.shape->getMaterial().hasSpecular()) { //Check if material is specular
             Vector3D wi = -r.d.normalized();
@@ -83,75 +159,17 @@ Vector3D Neeshader::computeColor(const Ray& r, const std::vector<Shape*>& objLis
         else if (its.shape->getMaterial().isEmissive()) {
             finalColor = its.shape->getMaterial().getEmissiveRadiance();
         }
-
         // Handle diffuse or glossy materials
+        
         else if (its.shape->getMaterial().hasDiffuseOrGlossy()) {
 
-            Vector3D at = Vector3D(0.15); // Ambient term
-            Vector3D pd = its.shape->getMaterial().getDiffuseReflectance(); // Diffuse reflectance
-            Vector3D final_color(0.0);
-            Vector3D finalDirectIllumination(0.0);
-            Vector3D indirectillumination(0.0);
-            Intersection its_hemis;
-            HemisphericalSampler hs = HemisphericalSampler();
-            Vector3D Le(0.0);
+            Vector3D reflectedRadiance = ComputeRadiance(r, objList, lsList, r.depth, its);
 
-            double numSamples = 256;
-
-            for (int j = 0; j < lsList.size(); j++) {
-                // Monte Carlo integration: sample points on the area light
-
-                double A = lsList.at(j)->getArea();  // Area of the light source
-                for (int i = 0; i < numSamples; i++) {
-                    // Sample a random point on the area light
-                    Vector3D y = (lsList.at(j)->sampleLightPosition());
-
-                    int Vs = 1;//keep changing the value at each sample since we have initialized before the usage of samples, making the first time being zero, always zero
-
-                    // Compute wi (direction from intersection point x to sampled light point y)
-                    Vector3D wi = (y - its.itsPoint).normalized();
-                    double distanceSquared = (y - its.itsPoint).lengthSq();
-
-                    // Compute visibility (check if the point on the light is visible from the intersection point)
-                    Ray shadowRay(its.itsPoint, wi);
-
-                    //(denoted as its.itsPoint) towards a sampled light position y, you want to know whether any object obstructs the line of sight between the two points.
-                    shadowRay.maxT = (y - its.itsPoint).length() - 0.01; //We need to make a maximum to avoid this on to be infinite
-
-                    if (Utils::hasIntersection(shadowRay, objList)) {  //Not having visibility
-                        Vs = 0;
-                    }
-                    if (Vs == 1) {
-                        //COMPUTING DIRECT RADIANCE
-                        // Get the radiance emitted from the light at point y
-                        Vector3D Le = lsList.at(j)->getIntensity();
-                        // Compute the geometric term G(x, y)
-                        Vector3D n = its.normal.normalized();
-                        Vector3D ny = lsList.at(j)->getNormal();  // Normal of the light's surface
-                        double G = (dot(n, wi) * dot(-wi, ny)) / distanceSquared;
-
-                        // Get BRDF (Phong reflection or other)
-                        Vector3D wo = -r.d;  // Outgoing direction
-                        Vector3D reflectance = its.shape->getMaterial().getReflectance(n, -wi, wo);  // BRDF function
-
-                        // Monte Carlo estimator for direct illumination
-                        finalDirectIllumination = Le * reflectance * G * Vs / (1 / A);
-                        //ENDING DIRECT RADIANCE
-
-                        //REFLECTED RADIANCE
-                        Vector3D wj = hs.getSample(its.normal);
-
-                        indirectillumination = ComputeRadiance(shadowRay, objList, lsList, 2, its, hs, wj, A);
-                        reflectedradiance += finalDirectIllumination + indirectillumination;
-                    }
-                }
-            }
-            final_color = Le + reflectedradiance;
-            finalColor = final_color * (1 / numSamples) + at * pd;
+            finalColor =  reflectedRadiance;
+        
         }
+        
+        // Return the final color computed (emissive, reflective, or refracted)
         return finalColor;
-    }
-    else {
-        return bgColor;
     }
 }

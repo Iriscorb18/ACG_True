@@ -31,7 +31,7 @@ public:
     size_t depth;        // Ray depth (or number of bounces)
 
     //FILL(..) Extra data for Path Tracing
-
+    int com_depth = 0;
 };
 
 std::ostream &operator<<(std::ostream &out, const Ray &r);
