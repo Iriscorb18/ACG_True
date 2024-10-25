@@ -22,9 +22,6 @@ Vector3D Neeshader::ComputeRadiance(const Ray& r, const std::vector<Shape*>& obj
         return bgColor; // Background color if no hit
     }
 
-    // Emitted radiance (directly from the surface)
-    
-
     Vector3D Lr(0.0);
     Vector3D Le(0.0);
 
@@ -115,8 +112,7 @@ Vector3D Neeshader::IndirectRadiance(const Intersection& its, const Vector3D& wo
 Vector3D Neeshader::computeColor(const Ray& r, const std::vector<Shape*>& objList, const std::vector<LightSource*>& lsList) const
 {
     Intersection its;
-    Scene scene;
-   
+    Scene scene;  
 
     if (Utils::getClosestIntersection(r, objList, its)) { //Loop through all objects to see their closest intersection
         Vector3D finalColor = Vector3D(0.0, 0.0, 0.0);
@@ -162,13 +158,9 @@ Vector3D Neeshader::computeColor(const Ray& r, const std::vector<Shape*>& objLis
         // Handle diffuse or glossy materials
         
         else if (its.shape->getMaterial().hasDiffuseOrGlossy()) {
-
             Vector3D reflectedRadiance = ComputeRadiance(r, objList, lsList, r.depth, its);
-
             finalColor =  reflectedRadiance;
-        
-        }
-        
+        } 
         // Return the final color computed (emissive, reflective, or refracted)
         return finalColor;
     }

@@ -249,7 +249,6 @@ int main()
     // Launch some rays! TASK 2,3,...   
     auto start = high_resolution_clock::now();
     raytrace(cam, shader, film, myScene.objectsList, myScene.LightSourceList);
-    //raytrace(cam, depthshader, film, myScene.objectsList, myScene.LightSourceList); 
     auto stop = high_resolution_clock::now();
 
     // Save the final result to file

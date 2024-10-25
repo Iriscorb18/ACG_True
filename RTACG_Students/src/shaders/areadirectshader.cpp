@@ -1,4 +1,3 @@
-
 #include "shader.h"
 #include "areadirectshader.h"
 #include "../materials/phong.h"
